@@ -242,13 +242,12 @@ export default withGeoPosition(Inner);
 
 ## Media
 
-Retrieve media query (i.e. `window.matchMedia().matches`) from the browser. Note
-this component is taken from @mjackson's awesome
-[react-media](https://github.com/reacttraining/react-media)
+Retrieve media query (i.e. `window.matchMedia().matches`) from the browser.
 
 ### Media props
 
 * `query: string`: A media query string
+* `defaultValue: boolean`: A default value for when the API is not supported by the browser
 
 ### Media render props
 
@@ -262,7 +261,8 @@ import { Media } from 'react-fns';
 const Example = () => (
   <Media
     query="(min-width: 1000px)"
-    render={match => <div>{match ? 'mobile' : 'desktop'}</div>}
+    defaultValue={false}
+    render={({ matches }) => <div>{matches ? 'mobile' : 'desktop'}</div>}
   />
 );
 
