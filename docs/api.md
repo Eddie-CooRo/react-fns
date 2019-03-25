@@ -271,7 +271,16 @@ export default Example;
 
 ### `withMedia()`
 
-Not implemented
+```javascript
+import { withMedia } from 'react-fns';
+
+const Example = ({ matches }) => <div>{matches ? 'mobile' : 'desktop'}</div>;
+
+export default withMedia({
+  query: '(min-width: 1000px)',
+  defaultValue: false,
+})(Example);
+```
 
 ## Scroll
 
